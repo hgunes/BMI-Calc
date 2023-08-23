@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */; };
-		BEE84DAC2A969F4400CA49C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DAB2A969F4400CA49C0 /* ViewController.swift */; };
+		BEE84DAC2A969F4400CA49C0 /* BMICalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */; };
 		BEE84DB12A969F4A00CA49C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */; };
 		BEE84DB42A969F4A00CA49C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE84DB22A969F4A00CA49C0 /* LaunchScreen.storyboard */; };
 		BEE84DBF2A969F4B00CA49C0 /* BMI_CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DBE2A969F4B00CA49C0 /* BMI_CalcTests.swift */; };
@@ -19,6 +19,7 @@
 		BEE84DDF2A96A06700CA49C0 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BEE84DDE2A96A06700CA49C0 /* CombineCocoa */; };
 		BEE84DE22A96A08F00CA49C0 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = BEE84DE12A96A08F00CA49C0 /* SnapshotTesting */; };
 		BEE84DE42A96A0A100CA49C0 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BEE84DE32A96A0A100CA49C0 /* CombineCocoa */; };
+		BEE84DE82A96A36300CA49C0 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DE72A96A36300CA49C0 /* LogoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +42,7 @@
 /* Begin PBXFileReference section */
 		BEE84DA42A969F4400CA49C0 /* BMI-Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI-Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BEE84DAB2A969F4400CA49C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalcVC.swift; sourceTree = "<group>"; };
 		BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEE84DB32A969F4A00CA49C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEE84DB52A969F4A00CA49C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		BEE84DC42A969F4B00CA49C0 /* BMI-CalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BMI-CalcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE84DC82A969F4B00CA49C0 /* BMI_CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_CalcUITests.swift; sourceTree = "<group>"; };
 		BEE84DCA2A969F4B00CA49C0 /* BMI_CalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_CalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BEE84DE72A96A36300CA49C0 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +108,10 @@
 		BEE84DA62A969F4400CA49C0 /* BMI-Calc */ = {
 			isa = PBXGroup;
 			children = (
+				BEE84DE62A96A34900CA49C0 /* View */,
 				BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */,
-				BEE84DAB2A969F4400CA49C0 /* ViewController.swift */,
-				BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */,
-				BEE84DB22A969F4A00CA49C0 /* LaunchScreen.storyboard */,
-				BEE84DB52A969F4A00CA49C0 /* Info.plist */,
+				BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */,
+				BEE84DE52A96A33600CA49C0 /* Support */,
 			);
 			path = "BMI-Calc";
 			sourceTree = "<group>";
@@ -137,6 +138,24 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEE84DE52A96A33600CA49C0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */,
+				BEE84DB22A969F4A00CA49C0 /* LaunchScreen.storyboard */,
+				BEE84DB52A969F4A00CA49C0 /* Info.plist */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		BEE84DE62A96A34900CA49C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEE84DE72A96A36300CA49C0 /* LogoView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE84DAC2A969F4400CA49C0 /* ViewController.swift in Sources */,
+				BEE84DAC2A969F4400CA49C0 /* BMICalcVC.swift in Sources */,
+				BEE84DE82A96A36300CA49C0 /* LogoView.swift in Sources */,
 				BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
