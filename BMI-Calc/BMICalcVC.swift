@@ -18,7 +18,6 @@ class BMICalcVC: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [
             UIView(), // spacer
             logoView,
-            UIView(), // spacer
             resultView,
             UIView(), // spacer
             bmiInputView,
@@ -36,19 +35,19 @@ class BMICalcVC: UIViewController {
     }
 
     private func layout() {
-        view.backgroundColor = .green
+        view.backgroundColor = ThemeColor.bg
         
         view.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).offset(150)
             make.bottom.equalTo(view.snp.bottom)
-            make.leading.equalTo(view.snp.leading).offset(16)
-            make.trailing.equalTo(view.snp.trailing).offset(-16)
+            make.leading.equalTo(view.snp.leading).offset(24)
+            make.trailing.equalTo(view.snp.trailing).offset(-24)
         }
         
         logoView.snp.makeConstraints { make in
-            make.height.equalTo(70)
+            make.height.equalTo(150)
         }
         
         resultView.snp.makeConstraints { make in

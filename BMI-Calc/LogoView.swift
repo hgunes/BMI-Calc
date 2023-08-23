@@ -6,40 +6,39 @@
 //
 
 import UIKit
+import SnapKit
 
 class LogoView: UIView {
     
-    init() {
-        super.init(frame: .zero)
-        layout()
-    }
+    private let topLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Calculate"
+        label.font = ThemeFont.bold(ofSize: 30)
+        label.textColor = ThemeColor.logo
+        return label
+    }()
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let bottomLabel: UILabel = {
+        let label = UILabel()
+        let text = NSMutableAttributedString(string: "your BMI",
+                                               attributes: [.font: ThemeFont.bold(ofSize: 22)])
+        text.addAttributes([.font: ThemeFont.bold(ofSize: 34)],
+                           range: NSMakeRange(5, 3))
+        label.attributedText = text
+        label.textColor = ThemeColor.logo
+        return label
+    }()
     
-    private func layout() {
-        backgroundColor = .systemPink
-    }
-}
-
-class ResultView: UIView {
-    
-    init() {
-        super.init(frame: .zero)
-        layout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func layout() {
-        backgroundColor = .systemPurple
-    }
-}
-
-class InputView: UIView {
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            topLabel,
+            bottomLabel
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.alignment = .leading
+        return stackView
+    }()
     
     init() {
         super.init(frame: .zero)
@@ -51,6 +50,12 @@ class InputView: UIView {
     }
     
     private func layout() {
-        backgroundColor = .red
+//        backgroundColor = ThemeColor.primary
+        
+        addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+        }
     }
 }
