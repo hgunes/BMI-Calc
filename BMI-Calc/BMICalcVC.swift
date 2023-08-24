@@ -40,8 +40,8 @@ class BMICalcVC: UIViewController {
         view.addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(150)
-            make.bottom.equalTo(view.snp.bottom)
+            make.top.equalTo(view.snp.top).offset(90)
+            make.bottom.equalTo(view.snp.bottom).offset(-40)
             make.leading.equalTo(view.snp.leading).offset(24)
             make.trailing.equalTo(view.snp.trailing).offset(-24)
         }
@@ -55,7 +55,7 @@ class BMICalcVC: UIViewController {
         }
         
         bmiInputView.snp.makeConstraints { make in
-            make.height.equalTo(170)
+            make.height.equalTo(220)
         }
     }
 
