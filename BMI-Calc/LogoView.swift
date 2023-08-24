@@ -11,11 +11,16 @@ import SnapKit
 class LogoView: UIView {
     
     private let topLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Calculate"
-        label.font = ThemeFont.bold(ofSize: 30)
-        label.textColor = ThemeColor.logo
-        return label
+//        let label = UILabel()
+//        label.text = "Calculate"
+//        label.font = ThemeFont.bold(ofSize: 30)
+//        label.textColor = ThemeColor.logo
+//        return label
+        
+        LabelFactory.build(
+            text: "Calculate",
+            font: ThemeFont.bold(ofSize: 30),
+            textColor: ThemeColor.logo)
     }()
     
     private let bottomLabel: UILabel = {
@@ -35,7 +40,7 @@ class LogoView: UIView {
             bottomLabel
         ])
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = -4
         stackView.alignment = .leading
         return stackView
     }()

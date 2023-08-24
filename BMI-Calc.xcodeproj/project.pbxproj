@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEA1868C2A97E3D20046EC54 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA1868B2A97E3D20046EC54 /* LabelFactory.swift */; };
 		BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */; };
 		BEE84DAC2A969F4400CA49C0 /* BMICalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */; };
 		BEE84DB12A969F4A00CA49C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BEA1868B2A97E3D20046EC54 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		BEE84DA42A969F4400CA49C0 /* BMI-Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI-Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalcVC.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BEA1868A2A97E3B90046EC54 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BEA1868B2A97E3D20046EC54 /* LabelFactory.swift */,
+			);
+			name = Factory;
+			sourceTree = "<group>";
+		};
 		BEE84D9B2A969F4400CA49C0 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 		BEE84DA62A969F4400CA49C0 /* BMI-Calc */ = {
 			isa = PBXGroup;
 			children = (
+				BEA1868A2A97E3B90046EC54 /* Factory */,
 				BEE84DEC2A96A8E300CA49C0 /* Extension */,
 				BEE84DE92A96A8AF00CA49C0 /* Config */,
 				BEE84DE62A96A34900CA49C0 /* View */,
@@ -338,6 +349,7 @@
 				BEE84DAC2A969F4400CA49C0 /* BMICalcVC.swift in Sources */,
 				BEE84DF22A96AA3600CA49C0 /* InputView.swift in Sources */,
 				BEE84DEB2A96A8C700CA49C0 /* ThemeColor.swift in Sources */,
+				BEA1868C2A97E3D20046EC54 /* LabelFactory.swift in Sources */,
 				BEE84DE82A96A36300CA49C0 /* LogoView.swift in Sources */,
 				BEE84DF42A96AD7400CA49C0 /* ThemeFont.swift in Sources */,
 				BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */,

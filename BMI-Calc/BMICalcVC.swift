@@ -51,7 +51,7 @@ class BMICalcVC: UIViewController {
         }
         
         resultView.snp.makeConstraints { make in
-            make.height.equalTo(150)
+            make.height.equalTo(170)
         }
         
         bmiInputView.snp.makeConstraints { make in
