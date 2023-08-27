@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Combine
 
 class BMICalcVC: UIViewController {
     
@@ -27,11 +28,27 @@ class BMICalcVC: UIViewController {
         stackView.spacing = 60
         return stackView
     }()
+    
+    private let vm = BMICalculatorVM()
+    private var cancellables = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         layout()
+        bind()
+    }
+    
+    private func bind() {
+        
+        let input = BMICalculatorVM.Input(
+            heightPublisher: Just(10).eraseToAnyPublisher(),
+            weightPublisher: Just(20).eraseToAnyPublisher())
+        
+        let output = vm.transform(input: input)
+        output.updateViewPublisher.sink { result in
+            print(">>>> \(result)")
+        }.store(in: &cancellables)
     }
 
     private func layout() {

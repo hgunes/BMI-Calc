@@ -26,6 +26,8 @@
 		BEE84DF02A96AA0C00CA49C0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DEF2A96AA0C00CA49C0 /* ResultView.swift */; };
 		BEE84DF22A96AA3600CA49C0 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DF12A96AA3600CA49C0 /* InputView.swift */; };
 		BEE84DF42A96AD7400CA49C0 /* ThemeFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DF32A96AD7400CA49C0 /* ThemeFont.swift */; };
+		BEFAC8052A9BC47F00661089 /* BMICalculatorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFAC8042A9BC47F00661089 /* BMICalculatorVM.swift */; };
+		BEFAC8082A9BC5EB00661089 /* BMIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFAC8072A9BC5EB00661089 /* BMIResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		BEE84DEF2A96AA0C00CA49C0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		BEE84DF12A96AA3600CA49C0 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		BEE84DF32A96AD7400CA49C0 /* ThemeFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFont.swift; sourceTree = "<group>"; };
+		BEFAC8042A9BC47F00661089 /* BMICalculatorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculatorVM.swift; sourceTree = "<group>"; };
+		BEFAC8072A9BC5EB00661089 /* BMIResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		BEE84DA62A969F4400CA49C0 /* BMI-Calc */ = {
 			isa = PBXGroup;
 			children = (
+				BEFAC8062A9BC5DC00661089 /* Model */,
+				BEFAC8032A9BC46000661089 /* ViewModel */,
 				BEA1868A2A97E3B90046EC54 /* Factory */,
 				BEE84DEC2A96A8E300CA49C0 /* Extension */,
 				BEE84DE92A96A8AF00CA49C0 /* Config */,
@@ -198,6 +204,22 @@
 				BEE84DED2A96A8F700CA49C0 /* UIColor+Extension.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		BEFAC8032A9BC46000661089 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BEFAC8042A9BC47F00661089 /* BMICalculatorVM.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		BEFAC8062A9BC5DC00661089 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEFAC8072A9BC5EB00661089 /* BMIResult.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,8 +373,10 @@
 				BEE84DEB2A96A8C700CA49C0 /* ThemeColor.swift in Sources */,
 				BEA1868C2A97E3D20046EC54 /* LabelFactory.swift in Sources */,
 				BEE84DE82A96A36300CA49C0 /* LogoView.swift in Sources */,
+				BEFAC8082A9BC5EB00661089 /* BMIResult.swift in Sources */,
 				BEE84DF42A96AD7400CA49C0 /* ThemeFont.swift in Sources */,
 				BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */,
+				BEFAC8052A9BC47F00661089 /* BMICalculatorVM.swift in Sources */,
 				BEE84DEE2A96A8F700CA49C0 /* UIColor+Extension.swift in Sources */,
 				BEE84DF02A96AA0C00CA49C0 /* ResultView.swift in Sources */,
 			);

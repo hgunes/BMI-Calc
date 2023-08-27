@@ -62,6 +62,7 @@ class InputView: UIView {
     private func buildSlider() -> UISlider {
         let slider = UISlider()
         slider.tintColor = ThemeColor.primary
+        slider.thumbTintColor = ThemeColor.text
         return slider
     }
     
