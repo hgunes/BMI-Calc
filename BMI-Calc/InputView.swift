@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Combine
+import CombineCocoa
 
 class InputView: UIView {
     
@@ -38,9 +40,36 @@ class InputView: UIView {
         return stackView
     }()
     
+    private let heightSubject: PassthroughSubject<Float, Never> = .init()
+    
+    var heightValuePublisher: AnyPublisher<Float, Never> {
+        return heightSubject.eraseToAnyPublisher()
+    }
+    
+    private let weightSubject: PassthroughSubject<Float, Never> = .init()
+    
+    var weightValuePublisher: AnyPublisher<Float, Never> {
+        return weightSubject.eraseToAnyPublisher()
+    }
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     init() {
         super.init(frame: .zero)
         layout()
+        observe()
+    }
+    
+    private func observe() {
+        heightSlider.valuePublisher.sink { [unowned self] height in
+            let formattedHeight = String(format: "%.1f", heightSlider.value)
+            heightSubject.send(Float(formattedHeight)!)
+        }.store(in: &cancellables)
+        
+        weightSlider.valuePublisher.sink { [unowned self] weight in
+            let formattedWeight = String(format: "%.1f", heightSlider.value)
+            weightSubject.send(Float(formattedWeight)!)
+        }.store(in: &cancellables)
     }
     
     required init?(coder: NSCoder) {

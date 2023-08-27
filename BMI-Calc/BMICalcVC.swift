@@ -42,8 +42,8 @@ class BMICalcVC: UIViewController {
     private func bind() {
         
         let input = BMICalculatorVM.Input(
-            heightPublisher: Just(10).eraseToAnyPublisher(),
-            weightPublisher: Just(20).eraseToAnyPublisher())
+            heightPublisher: bmiInputView.heightValuePublisher,
+            weightPublisher: bmiInputView.weightValuePublisher)
         
         let output = vm.transform(input: input)
         output.updateViewPublisher.sink { result in
