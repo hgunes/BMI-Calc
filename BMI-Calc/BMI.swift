@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct BMIResult {
+struct BMI {
     let height: Float
     let weight: Float
+}
+
+struct BMIResult {
+    let bmi: Float
+    let advice: String
 }

@@ -12,20 +12,20 @@ class ResultView: UIView {
     
     private let resultLabel: UILabel = {
         LabelFactory.build(
-            text: "26.0",
+            text: "0.0",
             font: ThemeFont.bold(ofSize: 54))
     }()
     
-    private let adviseLabel: UILabel = {
+    private let adviceLabel: UILabel = {
         LabelFactory.build(
-            text: "You should eat more!",
+            text: "Enter your height and weight",
             font: ThemeFont.demiBold(ofSize: 18))
     }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             resultLabel,
-            adviseLabel
+            adviceLabel
         ])
         stackView.axis = .vertical
         stackView.spacing = -4
@@ -39,6 +39,11 @@ class ResultView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(result: BMIResult) {
+        resultLabel.text = String(format: "%.1f", result.bmi)
+        adviceLabel.text = result.advice
     }
     
     private func layout() {

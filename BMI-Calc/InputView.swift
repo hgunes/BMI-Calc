@@ -18,11 +18,23 @@ class InputView: UIView {
     }
     
     private lazy var heightStack: UIStackView = {
-        labelStack(title: "Height", value: "1.75m")
+        labelStack(title: "Height", valueLabel: heightLabel)
     }()
     
     private lazy var weightStack: UIStackView = {
-        labelStack(title: "Weight", value: "70kg")
+        labelStack(title: "Weight", valueLabel: weightLabel)
+    }()
+    
+    private let heightLabel: UILabel = {
+        LabelFactory.build(
+            text: "0.00",
+            font: ThemeFont.regular(ofSize: 12))
+    }()
+    
+    private let weightLabel: UILabel = {
+        LabelFactory.build(
+            text: "0",
+            font: ThemeFont.regular(ofSize: 12))
     }()
     
     private lazy var heightSlider: UISlider = {
@@ -68,18 +80,16 @@ class InputView: UIView {
     
     private func observeHeight() {
         heightSlider.valuePublisher.sink { [unowned self] height in
-            let formattedHeight = String(format: "%.2f", heightSlider.value)
-            heightSubject.send(Float(formattedHeight)!)
-            print(formattedHeight)
+            heightLabel.text = String(format: "%.2f", heightSlider.value)
+            heightSubject.send(height)
         }.store(in: &cancellables)
         
     }
     
     private func observeWeight() {
         weightSlider.valuePublisher.sink { [unowned self] weight in
-            let formattedWeight = String(format: "%.0f", weightSlider.value)
-            weightSubject.send(Float(formattedWeight)!)
-            print(formattedWeight)
+            weightLabel.text = String(format: "%.0f", weightSlider.value)
+            weightSubject.send(weight)
         }.store(in: &cancellables)
     }
     
@@ -103,27 +113,26 @@ class InputView: UIView {
         let slider = UISlider()
         slider.tintColor = ThemeColor.primary
         slider.thumbTintColor = ThemeColor.text
-        slider.minimumValue = 0
         
         switch type {
         case .height:
+            slider.minimumValue = 1
             slider.maximumValue = 3
         case .weight:
+            slider.minimumValue = 0
             slider.maximumValue = 200
         }
         
         return slider
     }
     
-    private func labelStack(title: String, value: String) -> UIStackView {
+    private func labelStack(title: String, valueLabel: UIView) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: [
             LabelFactory.build(
                 text: title,
                 font: ThemeFont.regular(ofSize: 12)),
             UIView(),
-            LabelFactory.build(
-                text: value,
-                font: ThemeFont.regular(ofSize: 12))
+            valueLabel
         ])
         stackView.axis = .horizontal
         stackView.distribution = .equalCentering
