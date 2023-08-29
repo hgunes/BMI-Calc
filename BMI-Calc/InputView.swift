@@ -12,6 +12,11 @@ import CombineCocoa
 
 class InputView: UIView {
     
+    enum SliderType {
+        case weight
+        case height
+    }
+    
     private lazy var heightStack: UIStackView = {
         labelStack(title: "Height", value: "1.75m")
     }()
@@ -21,11 +26,11 @@ class InputView: UIView {
     }()
     
     private lazy var heightSlider: UISlider = {
-        buildSlider()
+        buildSlider(type: .height)
     }()
     
     private lazy var weightSlider: UISlider = {
-        buildSlider()
+        buildSlider(type: .weight)
     }()
     
     private lazy var vStack: UIStackView = {
@@ -57,18 +62,24 @@ class InputView: UIView {
     init() {
         super.init(frame: .zero)
         layout()
-        observe()
+        observeHeight()
+        observeWeight()
     }
     
-    private func observe() {
+    private func observeHeight() {
         heightSlider.valuePublisher.sink { [unowned self] height in
-            let formattedHeight = String(format: "%.1f", heightSlider.value)
+            let formattedHeight = String(format: "%.2f", heightSlider.value)
             heightSubject.send(Float(formattedHeight)!)
+            print(formattedHeight)
         }.store(in: &cancellables)
         
+    }
+    
+    private func observeWeight() {
         weightSlider.valuePublisher.sink { [unowned self] weight in
-            let formattedWeight = String(format: "%.1f", heightSlider.value)
+            let formattedWeight = String(format: "%.0f", weightSlider.value)
             weightSubject.send(Float(formattedWeight)!)
+            print(formattedWeight)
         }.store(in: &cancellables)
     }
     
@@ -88,10 +99,19 @@ class InputView: UIView {
         }
     }
     
-    private func buildSlider() -> UISlider {
+    private func buildSlider(type: SliderType) -> UISlider {
         let slider = UISlider()
         slider.tintColor = ThemeColor.primary
         slider.thumbTintColor = ThemeColor.text
+        slider.minimumValue = 0
+        
+        switch type {
+        case .height:
+            slider.maximumValue = 3
+        case .weight:
+            slider.maximumValue = 200
+        }
+        
         return slider
     }
     
