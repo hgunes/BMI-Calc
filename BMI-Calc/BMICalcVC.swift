@@ -64,7 +64,7 @@ class BMICalcVC: UIViewController {
         }
         
         logoView.snp.makeConstraints { make in
-            make.height.equalTo(150)
+            make.height.equalTo(78)
         }
         
         resultView.snp.makeConstraints { make in
