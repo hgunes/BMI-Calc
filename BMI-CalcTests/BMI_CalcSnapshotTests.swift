@@ -70,7 +70,7 @@ final class BMI_CalcSnapshotTests: XCTestCase {
         assertSnapshot(matching: view, as: .image(size: size))
     }
     
-    func testBMIInputViewWithHeightWeightValue() {
+    func testBMIInputViewWithWeightValue() {
         // given
         let size = CGSize(width: screenWidth, height: 220)
         // when
@@ -82,19 +82,21 @@ final class BMI_CalcSnapshotTests: XCTestCase {
     }
 }
 
+// MARK: - Extensions
+
 extension UIView {
     
     /**
      This is a function to get subViews of a particular type from view recursively.
      It would look recursively in all subviews and return back the subviews of the type T
      */
-    func allSubViewsOf<T : UIView>(type : T.Type) -> [T]{
+    func allSubViewsOf<T : UIView>(type : T.Type) -> [T] {
         var all = [T]()
         func getSubview(view: UIView) {
-            if let aView = view as? T{
+            if let aView = view as? T {
                 all.append(aView)
             }
-            guard view.subviews.count>0 else { return }
+            guard view.subviews.count > 0 else { return }
             view.subviews.forEach{ getSubview(view: $0) }
         }
         getSubview(view: self)
