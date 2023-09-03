@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BEA1868C2A97E3D20046EC54 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA1868B2A97E3D20046EC54 /* LabelFactory.swift */; };
+		BEC658822AA4D274008DA7E1 /* BMI_CalcSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC658812AA4D274008DA7E1 /* BMI_CalcSnapshotTests.swift */; };
 		BEE84DA82A969F4400CA49C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */; };
 		BEE84DAC2A969F4400CA49C0 /* BMICalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */; };
 		BEE84DB12A969F4A00CA49C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE84DB02A969F4A00CA49C0 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		BEA1868B2A97E3D20046EC54 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
+		BEC658812AA4D274008DA7E1 /* BMI_CalcSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI_CalcSnapshotTests.swift; sourceTree = "<group>"; };
 		BEE84DA42A969F4400CA49C0 /* BMI-Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BMI-Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE84DA72A969F4400CA49C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEE84DAB2A969F4400CA49C0 /* BMICalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalcVC.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE84DBE2A969F4B00CA49C0 /* BMI_CalcTests.swift */,
+				BEC658812AA4D274008DA7E1 /* BMI_CalcSnapshotTests.swift */,
 			);
 			path = "BMI-CalcTests";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEE84DBF2A969F4B00CA49C0 /* BMI_CalcTests.swift in Sources */,
+				BEC658822AA4D274008DA7E1 /* BMI_CalcSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
