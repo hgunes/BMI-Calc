@@ -6,31 +6,105 @@
 //
 
 import XCTest
+import Combine
 @testable import BMI_Calc
 
 final class BMI_CalcTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private var sut: BMICalculatorVM!
+    private var cancellables: Set<AnyCancellable>!
+    
+    override func setUp() {
+        sut = .init()
+        cancellables = .init()
+        super.setUp()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        super.tearDown()
+        sut = nil
+        cancellables = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testResultWithoutWeightAndHeight() {
+        // given
+        let height: Float = 1.00
+        let weight: Float = 0
+        let input = buildInput(
+            height: height,
+            weight: weight)
+        
+        // when
+        let output = sut.transform(input: input)
+        
+        // then
+        output.updateViewPublisher.sink { result in
+            XCTAssertEqual(result.bmi, 0.0)
+            XCTAssertEqual(result.advice, "Eat more pies!")
+        }.store(in: &cancellables)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testResultWithLowBMI() {
+        // given
+        let height: Float = 1.80
+        let weight: Float = 50
+        let input = buildInput(
+            height: height,
+            weight: weight)
+        
+        // when
+        let output = sut.transform(input: input)
+        
+        // then
+        output.updateViewPublisher.sink { result in
+            let formattedBMI = String(format: "%.1f", result.bmi)
+            XCTAssertEqual(formattedBMI, String(15.4))
+            XCTAssertEqual(result.advice, "Eat more pies!")
+        }.store(in: &cancellables)
     }
-
+    
+    func testResultWithHighBMI() {
+        // given
+        let height: Float = 1.50
+        let weight: Float = 90
+        let input = buildInput(
+            height: height,
+            weight: weight)
+        
+        // when
+        let output = sut.transform(input: input)
+        
+        // then
+        output.updateViewPublisher.sink { result in
+            XCTAssertEqual(result.bmi, 40.0)
+            XCTAssertEqual(result.advice, "Eat less pies!")
+        }.store(in: &cancellables)
+    }
+    
+    func testIdealBMI() {
+        // given
+        let height: Float = 1.70
+        let weight: Float = 69
+        let input = buildInput(
+            height: height,
+            weight: weight)
+        
+        // when
+        let output = sut.transform(input: input)
+        
+        // then
+        output.updateViewPublisher.sink { result in
+            let formattedBMI = String(format: "%.1f", result.bmi)
+            XCTAssertEqual(formattedBMI, String(23.9))
+            XCTAssertEqual(result.advice, "Fit as a fiddle!")
+        }.store(in: &cancellables)
+    }
+    
+    private func buildInput(height: Float, weight: Float) -> BMICalculatorVM.Input {
+        return .init(
+            heightPublisher: Just(height).eraseToAnyPublisher(),
+            weightPublisher: Just(weight).eraseToAnyPublisher()
+        )
+    }
+    
 }
